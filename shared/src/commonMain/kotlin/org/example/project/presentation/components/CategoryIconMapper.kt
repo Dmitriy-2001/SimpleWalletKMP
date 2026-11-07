@@ -1,6 +1,9 @@
 package org.example.project.presentation.components
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -10,7 +13,9 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.example.project.presentation.theme.SimpleWalletTheme
 
 @Composable
 fun CategoryIcon(
@@ -95,5 +100,20 @@ fun parseHexColor(hex: String, defaultColor: Color = Color.Gray): Color {
         }
     } catch (_: Exception) {
         defaultColor
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryIconPreview() {
+    SimpleWalletTheme {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            CategoryIcon(iconName = "shopping_cart", tint = Color.Green)
+            CategoryIcon(iconName = "restaurant", tint = Color.Red)
+            CategoryIcon(iconName = "directions_car", tint = Color.Blue)
+        }
     }
 }

@@ -16,8 +16,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import org.example.project.domain.model.Category
+import org.example.project.domain.model.TransactionType
+import org.example.project.presentation.theme.SimpleWalletTheme
 
 @Composable
 fun CategoryChip(
@@ -49,6 +52,23 @@ fun CategoryChip(
             text = category.name,
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurface
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun CategoryChipPreview() {
+    SimpleWalletTheme {
+        CategoryChip(
+            category = Category(
+                id = 1,
+                name = "Продукты",
+                iconName = "shopping_cart",
+                colorHex = "#4CAF50",
+                type = TransactionType.EXPENSE
+            ),
+            isSelected = true
         )
     }
 }

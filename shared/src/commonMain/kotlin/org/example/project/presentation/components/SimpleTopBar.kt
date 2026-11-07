@@ -19,7 +19,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import org.example.project.presentation.theme.SimpleWalletTheme
 
 @Composable
 fun SimpleTopBar(
@@ -63,6 +65,19 @@ fun SimpleTopBar(
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onSurface
+            )
+        }
+    }
+}
+
+@Preview
+@Composable
+private fun SimpleTopBarPreview() {
+    SimpleWalletTheme {
+        Surface {
+            SimpleTopBar(
+                title = "История транзакций",
+                onBackClick = {}
             )
         }
     }

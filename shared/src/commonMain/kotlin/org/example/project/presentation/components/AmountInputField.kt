@@ -6,7 +6,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.tooling.preview.Preview
 import org.example.project.domain.model.Currency
+import org.example.project.presentation.theme.SimpleWalletTheme
 
 @Composable
 fun AmountInputField(
@@ -29,4 +31,16 @@ fun AmountInputField(
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Decimal),
         modifier = modifier
     )
+}
+
+@Preview
+@Composable
+private fun AmountInputFieldPreview() {
+    SimpleWalletTheme {
+        AmountInputField(
+            value = "15000",
+            onValueChange = {},
+            selectedCurrency = Currency.KZT
+        )
+    }
 }

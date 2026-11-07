@@ -23,15 +23,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import org.example.project.domain.model.Category
+import org.example.project.domain.model.Currency
 import org.example.project.domain.model.Transaction
 import org.example.project.domain.model.TransactionType
 import org.example.project.presentation.theme.ExpenseRed
 import org.example.project.presentation.theme.IncomeGreen
+import org.example.project.presentation.theme.SimpleWalletTheme
 
 @Composable
 fun TransactionItemRow(
@@ -123,5 +127,30 @@ fun TransactionItemRow(
                 }
             }
         }
+    }
+}
+
+@Preview
+@Composable
+private fun TransactionItemRowPreview() {
+    SimpleWalletTheme {
+        TransactionItemRow(
+            transaction = Transaction(
+                id = 1,
+                amount = 12500.0,
+                currency = Currency.KZT,
+                category = Category(
+                    id = 1,
+                    name = "Продукты",
+                    iconName = "shopping_cart",
+                    colorHex = "#4CAF50",
+                    type = TransactionType.EXPENSE
+                ),
+                type = TransactionType.EXPENSE,
+                dateTimestamp = 1716000000000L,
+                note = "Супермаркет"
+            ),
+            onDeleteClick = {}
+        )
     }
 }

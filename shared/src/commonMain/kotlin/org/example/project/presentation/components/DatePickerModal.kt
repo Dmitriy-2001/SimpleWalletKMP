@@ -7,6 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.tooling.preview.Preview
+import org.example.project.presentation.theme.SimpleWalletTheme
 import kotlin.time.Clock
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -41,3 +43,16 @@ fun DatePickerModal(
         DatePicker(state = datePickerState)
     }
 }
+
+@Preview
+@Composable
+private fun DatePickerModalPreview() {
+    SimpleWalletTheme {
+        DatePickerModal(
+            onDateSelected = {},
+            onDismiss = {},
+            initialSelectedDateMillis = null
+        )
+    }
+}
+
